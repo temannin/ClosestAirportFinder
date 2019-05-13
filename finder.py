@@ -8,7 +8,7 @@ def main():
     LAT_ORIGIN = radians(39.103119) # YOUR LOCATION LATITUDE IN ( )
     LON_ORIGIN = radians(-84.512016) # YOUR LOCATION LONGITUDE IN ( )
 
-    radius_of_earth = 6371.0
+    radius_of_earth = 6378.0
 
     results = []
 
