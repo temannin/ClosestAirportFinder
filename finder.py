@@ -16,32 +16,34 @@ def main():
         with open('airports.json') as json_file:
             data = json.load(json_file)
             for line in airports:
-                regex = r"\((.*)\)"
-                matches = re.search(regex, line)
-                DEST = "K"  + matches.group(1)
-            
-                for airport in data:
-                    if DEST == airport:
-                        lat2 = radians(data[airport]["lat"])
-                        lon2 = radians(data[airport]["lon"])
+                if line.strip():                    
+                    regex = r"\((.*)\)"
+                    matches = re.search(regex, line)
+                    if matches:
+                        DEST = "K"  + matches.group(1)
+                
+                        for airport in data:
+                            if DEST == airport:
+                                lat2 = radians(data[airport]["lat"])
+                                lon2 = radians(data[airport]["lon"])
 
-                        dlon = lon2 - LON_ORIGIN
-                        dlat = lat2 - LAT_ORIGIN
+                                dlon = lon2 - LON_ORIGIN
+                                dlat = lat2 - LAT_ORIGIN
 
-                        a = sin(dlat / 2)**2 + cos(LAT_ORIGIN) * cos(lat2) * sin(dlon / 2)**2
-                        c = 2 * atan2(sqrt(a), sqrt(1 - a))
+                                a = sin(dlat / 2)**2 + cos(LAT_ORIGIN) * cos(lat2) * sin(dlon / 2)**2
+                                c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
-                        distance = radius_of_earth * c * .621371 # Remove .621371 for distance in kilometers.
-                        
-                        result = {
-                            "name": data[airport]["name"],
-                            "distance": distance
-                        }
+                                distance = radius_of_earth * c * .621371 # Remove .621371 for distance in kilometers.
+                                
+                                result = {
+                                    "name": data[airport]["name"],
+                                    "distance": distance
+                                }
 
-                        results.append(result)
+                                results.append(result)
 
-                        # print(f'{data[airport]["name"]} is {distance}Kms away.')
-    results = sorted(results, key=lambda k: k['distance'])
+        results = sorted(results, key=lambda k: k['distance'])
+    
     for result in results:
         print(result)
 
