@@ -1,5 +1,8 @@
 # Closest Airport Finder
 ![](https://img.shields.io/badge/dependencies-0-brightgreen.svg) ![GitHub](https://img.shields.io/github/license/temannin/ClosestAirportFinder.svg) ![](https://img.shields.io/badge/python-3.7-blue.svg)<br><br>
+
+Given a list of airports, is able to find the closest airport to the location provided.
+
 This script is primarily for the output of Scott's Cheaps Flights emails. SCF, by default sends **ALL** the FROM locations of a certain deal and it can be hard to decipher which airport is the closest to *you*. 
 
 ## Up and Running
