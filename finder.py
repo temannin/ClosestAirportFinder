@@ -35,7 +35,7 @@ def main():
                                     cos(lat2) * sin(dlon / 2)**2
                                 c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
-                                # Remove .621371 for distance in kilometers.
+                                # Remove .621371 for kilometers.
                                 distance = radius_of_earth * c * .621371
 
                                 result = {
