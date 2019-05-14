@@ -20,7 +20,7 @@ This script is primarily for the output of Scott's Cheaps Flights emails. SCF, b
             San Francisco (SFO) - $367
             Washington DC (IAD) - $363
 
-        The output of python ./finder.py will be 
+        The output of python ./finder.py (distance in miles):
 
         {'name': "Chicago O'Hare International Airport", 'distance': 266.8845815350654}
         {'name': 'Washington Dulles International Airport', 'distance': 378.94208318180785}
