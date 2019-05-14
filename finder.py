@@ -3,7 +3,6 @@ import re
 
 from math import sin, cos, sqrt, atan2, radians
 
-
 def main():
 
     LAT_ORIGIN = radians(39.103119)  # YOUR LOCATION LATITUDE IN ( )
