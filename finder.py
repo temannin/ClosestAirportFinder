@@ -23,34 +23,35 @@ def main():
                     if matches:
                         DEST = "K" + matches.group(1)
 
-                        for airport in data:
-                            if DEST == airport:
-                                lat2 = radians(data[airport]["lat"])
-                                lon2 = radians(data[airport]["lon"])
+                        #for airport in data:
+                        airport = data[DEST]
+                        #if DEST == airport:
+                        lat2 = radians(data[airport]["lat"])
+                        lon2 = radians(data[airport]["lon"])
 
-                                dlon = lon2 - LON_ORIGIN
-                                dlat = lat2 - LAT_ORIGIN
+                        dlon = lon2 - LON_ORIGIN
+                        dlat = lat2 - LAT_ORIGIN
 
-                                a = sin(dlat / 2)**2 + cos(LAT_ORIGIN) * \
-                                    cos(lat2) * sin(dlon / 2)**2
-                                c = 2 * atan2(sqrt(a), sqrt(1 - a))
+                        a = sin(dlat / 2)**2 + cos(LAT_ORIGIN) * \
+                            cos(lat2) * sin(dlon / 2)**2
+                        c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
-                                
-                                if (len(sys.argv) > 1):
-                                    if (sys.argv[1] == "-km"):
-                                        distance = radius_of_earth * c
-                                    else:
-                                        distance = radius_of_earth * c * .621371
-                                else:
-                                    distance = radius_of_earth * c * .621371
-                                 
 
-                                result = {
-                                    "name": data[airport]["name"],
-                                    "distance": distance
-                                }
+                        if (len(sys.argv) > 1):
+                            if (sys.argv[1] == "-km"):
+                                distance = radius_of_earth * c
+                            else:
+                                distance = radius_of_earth * c * .621371
+                        else:
+                            distance = radius_of_earth * c * .621371
 
-                                results.append(result)
+
+                        result = {
+                            "name": data[airport]["name"],
+                            "distance": distance
+                        }
+
+                        results.append(result)
 
         results = sorted(results, key=lambda k: k['distance'])
 
