@@ -1,5 +1,6 @@
 import json
 import re
+import
 
 from math import sin, cos, sqrt, atan2, radians
 
@@ -34,8 +35,15 @@ def main():
                                     cos(lat2) * sin(dlon / 2)**2
                                 c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
-                                # Remove .621371 for kilometers.
-                                distance = radius_of_earth * c * .621371
+                                
+                                if (len(sys.argv) > 1):
+                                    if (sys.argv[1] == "-km"):
+                                        distance = radius_of_earth * c
+                                    else:
+                                        distance = radius_of_earth * c * .621371
+                                else:
+                                    distance = radius_of_earth * c * .621371
+                                 
 
                                 result = {
                                     "name": data[airport]["name"],
