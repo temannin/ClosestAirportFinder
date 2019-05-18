@@ -52,7 +52,8 @@ def main():
                         }
 
                         results.append(result)
-
+        
+        results = [dict(t) for t in {tuple(d.items()) for d in results}]
         results = sorted(results, key=lambda k: k['distance'])
 
     for result in results:

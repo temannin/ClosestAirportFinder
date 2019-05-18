@@ -1,7 +1,14 @@
-Chicago (ORD) - $380
-Los Angeles (LAX) - $377
-Miami (MIA) - $363
-Orlando (MCO) - $467
-Philadelphia (PHL) - $357
-San Francisco (SFO) - $367
-Washington DC (IAD) - $36
+New York City (JFK) - $569*
+
+San Francisco (SFO) - $569*
+Boston (BOS) - $569*
+
+Chicago (ORD) - $569*
+
+Dallas (DFW) - $569*
+
+New York City (JFK) - $569*
+
+Portland (PDX) - $569*
+
+Seattle (SEA) - $569* 
