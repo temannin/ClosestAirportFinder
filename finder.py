@@ -1,6 +1,6 @@
 import json
 import re
-import
+import sys
 
 from math import sin, cos, sqrt, atan2, radians
 
@@ -26,8 +26,8 @@ def main():
                         #for airport in data:
                         airport = data[DEST]
                         #if DEST == airport:
-                        lat2 = radians(data[airport]["lat"])
-                        lon2 = radians(data[airport]["lon"])
+                        lat2 = radians(data[airport["icao"]]["lat"])
+                        lon2 = radians(data[airport["icao"]]["lon"])
 
                         dlon = lon2 - LON_ORIGIN
                         dlat = lat2 - LAT_ORIGIN
@@ -47,7 +47,7 @@ def main():
 
 
                         result = {
-                            "name": data[airport]["name"],
+                            "name": data[airport["icao"]]["name"],
                             "distance": distance
                         }
 
