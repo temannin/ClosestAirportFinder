@@ -26,8 +26,8 @@ def main():
                         #for airport in data:
                         airport = data[DEST]
                         #if DEST == airport:
-                        lat2 = radians(data[airport["icao"]]["lat"])
-                        lon2 = radians(data[airport["icao"]]["lon"])
+                        lat2 = radians(airport["lat"])
+                        lon2 = radians(airport["lon"])
 
                         dlon = lon2 - LON_ORIGIN
                         dlat = lat2 - LAT_ORIGIN
@@ -47,7 +47,7 @@ def main():
 
 
                         result = {
-                            "name": data[airport["icao"]]["name"],
+                            "name": airport["name"],
                             "distance": distance
                         }
 
@@ -61,4 +61,8 @@ def main():
 
 
 if __name__ == "__main__":
+    import time
+    start = time.time()
     main()
+    end = time.time()
+    print(end-start)
